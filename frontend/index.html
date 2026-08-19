@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Log in or create a staff account to manage visitor check-ins and check-outs." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b5567d'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EVM%3C/text%3E%3C/svg%3E" />
+  <title>Visitor Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-mark">VM</div>
+      <div class="brand-name">Visitor Management System</div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="login">Log In</button>
+      <button class="tab-btn" data-tab="signup">Sign Up</button>
+    </div>
+
+    <div id="alert" class="alert"></div>
+
+    <form id="login-form" class="auth-form active">
+      <div class="field">
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" required autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" required autocomplete="current-password" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Log In</button>
+    </form>
+
+    <form id="signup-form" class="auth-form">
+      <div class="field">
+        <label for="signup-name">Full Name</label>
+        <input id="signup-name" type="text" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="signup-email">Email</label>
+        <input id="signup-email" type="email" required autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="signup-password">Password</label>
+        <input id="signup-password" type="password" required autocomplete="new-password" />
+        <ul class="password-checklist" id="password-checklist">
+          <li data-rule="length">At least 8 characters</li>
+          <li data-rule="lower">A lowercase letter</li>
+          <li data-rule="upper">An uppercase letter</li>
+          <li data-rule="number">A number</li>
+          <li data-rule="special">A special character (@$!%*?&)</li>
+        </ul>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+
+    <div class="text-link"><a href="find-visit.html">Looking for your own visit status?</a></div>
+  </div>
+
+  <footer class="site-footer" id="app-footer"></footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

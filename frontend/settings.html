@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="View your staff profile and update your password." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b5567d'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EVM%3C/text%3E%3C/svg%3E" />
+  <title>Settings · Visitor Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="app-topbar"></header>
+
+    <main class="container" style="max-width: 620px">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Account</div>
+            <div class="card-subtitle">Your staff profile</div>
+          </div>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <div class="detail-label">Name</div>
+            <div class="detail-value" id="me-name">—</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Email</div>
+            <div class="detail-value" id="me-email">—</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Change Password</div>
+            <div class="card-subtitle">Update the password used to log in</div>
+          </div>
+        </div>
+        <div id="password-alert" class="alert"></div>
+        <form id="password-form">
+          <div class="field">
+            <label for="current-password">Current password</label>
+            <input id="current-password" type="password" required autocomplete="current-password" />
+          </div>
+          <div class="field">
+            <label for="new-password">New password</label>
+            <input id="new-password" type="password" required autocomplete="new-password" />
+            <ul class="password-checklist" id="password-checklist">
+              <li data-rule="length">At least 8 characters</li>
+              <li data-rule="lower">A lowercase letter</li>
+              <li data-rule="upper">An uppercase letter</li>
+              <li data-rule="number">A number</li>
+              <li data-rule="special">A special character (@$!%*?&)</li>
+            </ul>
+          </div>
+          <div class="field">
+            <label for="confirm-password">Confirm new password</label>
+            <input id="confirm-password" type="password" required autocomplete="new-password" />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Update Password</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="app-footer"></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./visitor.db:/app/visitor.db
+      - ./checkin_photos:/app/checkin_photos
+      - ./checkout_photos:/app/checkout_photos
+    restart: unless-stopped

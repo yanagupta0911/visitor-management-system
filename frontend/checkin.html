@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Look up a visitor by ID and check them in or out with a photo." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b5567d'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EVM%3C/text%3E%3C/svg%3E" />
+  <title>Check In / Out · Visitor Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="app-topbar"></header>
+
+    <main class="container" style="max-width: 720px">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Find Visitor</div>
+            <div class="card-subtitle">Enter a visitor ID to load their record</div>
+          </div>
+        </div>
+        <div id="find-alert" class="alert"></div>
+        <form id="find-form" class="form-grid" style="grid-template-columns: 1fr auto">
+          <div class="field" style="margin-bottom: 0">
+            <label for="find-id">Visitor ID</label>
+            <input id="find-id" placeholder="VIS-XXXXXXXXXX" required />
+          </div>
+          <div class="field" style="margin-bottom: 0; align-self: end">
+            <button type="submit" class="btn btn-primary">Find</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" id="visit-card" style="display: none">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Visitor</div>
+          </div>
+        </div>
+        <div class="visitor-preview" id="visitor-preview"></div>
+
+        <div id="visit-alert" class="alert" style="margin-top: 14px"></div>
+        <form id="visit-form" style="margin-top: 14px">
+          <div class="field">
+            <label for="visit-photo">Photo</label>
+            <input id="visit-photo" type="file" accept="image/*" capture="environment" required />
+            <div class="photo-preview-frame" id="photo-preview-frame">
+              <img id="photo-preview" alt="Selected photo preview" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" data-action="checkin" id="checkin-btn" class="btn btn-primary">Check In</button>
+            <button type="submit" data-action="checkout" id="checkout-btn" class="btn btn-outline">Check Out</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="app-footer"></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/checkin.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.git/
+.env
+tests/
+.pytest_cache/
+checkin_photos/
+checkout_photos/
+visitor.db
+*.db-journal
+.claude/

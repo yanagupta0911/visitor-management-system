@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Look up your own visit status by visitor ID and email — no login required." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b5567d'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EVM%3C/text%3E%3C/svg%3E" />
+  <title>Find My Visit · Visitor Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-mark">VM</div>
+      <div class="brand-name">Find My Visit</div>
+    </div>
+
+    <div id="alert" class="alert"></div>
+
+    <form id="lookup-form" class="auth-form active">
+      <div class="field">
+        <label for="lookup-id">Visitor ID</label>
+        <input id="lookup-id" placeholder="VIS-XXXXXXXXXX" required />
+      </div>
+      <div class="field">
+        <label for="lookup-email">Email used at registration</label>
+        <input id="lookup-email" type="email" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Look Up</button>
+    </form>
+
+    <div id="result" style="margin-top: 16px; font-size: 13.5px"></div>
+
+    <div class="text-link"><a href="index.html">Staff login</a></div>
+  </div>
+
+  <footer class="site-footer" id="app-footer"></footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/find-visit.js"></script>
+</body>
+</html>

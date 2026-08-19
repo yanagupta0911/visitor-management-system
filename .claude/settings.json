@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./venv/Scripts/python.exe -m pip install -q python-dotenv==1.0.1)",
+      "Bash(./venv/Scripts/python.exe -c ' *)",
+      "Bash(./venv/Scripts/python.exe -m uvicorn main:app --port 8123)",
+      "Bash(echo \"started pid $!\")",
+      "Bash(curl -s http://127.0.0.1:8123/health)",
+      "Bash(curl -s http://127.0.0.1:8123/ -o /dev/null -w \"index.html status: %{http_code}\\\\n\")",
+      "Bash(taskkill //F //PID 319)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //F //PID 12796)",
+      "Bash(taskkill //F //PID 19596)"
+    ]
+  }
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Full visitor profile: details, photos, edit and delete." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b5567d'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EVM%3C/text%3E%3C/svg%3E" />
+  <title>Visitor Profile · Visitor Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="app-topbar"></header>
+
+    <main class="container" style="max-width: 860px">
+      <div><a href="visitors.html" class="text-link" style="margin: 0">← Back to Directory</a></div>
+
+      <div id="load-alert" class="alert"></div>
+
+      <section class="card" id="profile-card" style="display: none">
+        <div class="visitor-header">
+          <div class="avatar-lg" id="avatar"></div>
+          <div>
+            <div style="font-size: 18px; font-weight: 700" id="profile-name"></div>
+            <div class="card-subtitle mono" id="profile-id"></div>
+          </div>
+          <span class="badge" id="profile-status" style="margin-left: auto"></span>
+          <button id="print-btn" class="btn btn-outline btn-sm">Print</button>
+        </div>
+
+        <div class="detail-grid">
+          <div class="detail-item">
+            <div class="detail-label">Registered</div>
+            <div class="detail-value" id="d-registered"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Email</div>
+            <div class="detail-value" id="d-email"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Phone</div>
+            <div class="detail-value" id="d-phone"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Host / Meeting</div>
+            <div class="detail-value" id="d-authority"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Address</div>
+            <div class="detail-value" id="d-address"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">ID Type</div>
+            <div class="detail-value" id="d-idname"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">ID Number</div>
+            <div class="detail-value" id="d-idno"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="photos-card" style="display: none">
+        <div class="card-title" style="margin-bottom: 14px">Photos</div>
+        <div class="photo-gallery" id="photo-gallery"></div>
+      </section>
+
+      <section class="card" id="edit-card" style="display: none">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Edit Details</div>
+            <div class="card-subtitle">Update this visitor's information</div>
+          </div>
+        </div>
+        <div id="edit-alert" class="alert"></div>
+        <form id="edit-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="e-name">Full name</label>
+              <input id="e-name" required />
+            </div>
+            <div class="field">
+              <label for="e-email">Email</label>
+              <input id="e-email" type="email" required />
+            </div>
+            <div class="field">
+              <label for="e-phone">Phone (10 digits)</label>
+              <input id="e-phone" required maxlength="10" />
+            </div>
+            <div class="field">
+              <label for="e-authority">Meeting / host</label>
+              <input id="e-authority" required />
+            </div>
+            <div class="field">
+              <label for="e-idname">ID type</label>
+              <input id="e-idname" required />
+            </div>
+            <div class="field">
+              <label for="e-idno">ID number</label>
+              <input id="e-idno" required />
+            </div>
+          </div>
+          <div class="field" style="margin-top: 14px">
+            <label for="e-address">Address</label>
+            <input id="e-address" required />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" id="danger-card" style="display: none; border-color: var(--color-danger-soft)">
+        <div class="card-title">Danger Zone</div>
+        <div class="card-subtitle" style="margin: 6px 0 14px">Deleting a visitor record cannot be undone.</div>
+        <button id="delete-btn" class="btn btn-danger">Delete Visitor</button>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="app-footer"></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/visitor.js"></script>
+</body>
+</html>

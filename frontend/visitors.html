@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Search, filter, sort and export the full visitor directory." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b5567d'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EVM%3C/text%3E%3C/svg%3E" />
+  <title>Visitor Directory · Visitor Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="app-topbar"></header>
+
+    <main class="container">
+      <section class="card">
+        <div class="table-toolbar">
+          <div>
+            <div class="card-title">Visitor Directory</div>
+            <div class="card-subtitle">Every visitor registered by your team</div>
+          </div>
+          <div class="filter-row">
+            <input id="search-input" placeholder="Search name, ID, email…" />
+            <select id="status-filter">
+              <option value="">All statuses</option>
+              <option value="Registered">Registered</option>
+              <option value="Checked In">Checked In</option>
+              <option value="Checked Out">Checked Out</option>
+            </select>
+            <button id="refresh-btn" class="btn btn-outline btn-sm">Refresh</button>
+            <button id="export-btn" class="btn btn-outline btn-sm">Export CSV</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th data-sort="visitor_id" class="sortable">Visitor ID</th>
+                <th data-sort="name" class="sortable">Name</th>
+                <th>Contact</th>
+                <th data-sort="status" class="sortable">Status</th>
+                <th data-sort="checkin_date" class="sortable">Check-in</th>
+                <th data-sort="checkout_date" class="sortable">Check-out</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="visitors-body"></tbody>
+          </table>
+          <div id="empty-state" class="empty-state" style="display: none">
+            No visitors match your search.
+          </div>
+        </div>
+        <div class="pagination" id="pagination"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="app-footer"></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/visitors.js"></script>
+</body>
+</html>

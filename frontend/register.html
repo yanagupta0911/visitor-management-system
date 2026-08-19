@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Register a new visitor and generate their unique visitor ID." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b5567d'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EVM%3C/text%3E%3C/svg%3E" />
+  <title>Register Visitor · Visitor Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="app-topbar"></header>
+
+    <main class="container" style="max-width: 720px">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Register Visitor</div>
+            <div class="card-subtitle">Create a new visitor record. A unique visitor ID is generated automatically.</div>
+          </div>
+        </div>
+        <div id="register-alert" class="alert"></div>
+        <form id="register-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="reg-name">Full name</label>
+              <input id="reg-name" required />
+            </div>
+            <div class="field">
+              <label for="reg-email">Email</label>
+              <input id="reg-email" type="email" required />
+            </div>
+            <div class="field">
+              <label for="reg-phone">Phone (10 digits)</label>
+              <input id="reg-phone" required maxlength="10" />
+            </div>
+            <div class="field">
+              <label for="reg-authority">Meeting / host</label>
+              <input id="reg-authority" required />
+            </div>
+            <div class="field">
+              <label for="reg-idname">ID type</label>
+              <input id="reg-idname" placeholder="e.g. Passport" required />
+            </div>
+            <div class="field">
+              <label for="reg-idno">ID number</label>
+              <input id="reg-idno" required />
+            </div>
+          </div>
+          <div class="field" style="margin-top: 14px">
+            <label for="reg-address">Address</label>
+            <input id="reg-address" required />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Register Visitor</button>
+            <button type="button" id="reset-btn" class="btn btn-outline">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" id="success-card" style="display: none">
+        <div class="card-title">Visitor Registered</div>
+        <div class="card-subtitle" style="margin-top: 6px">
+          Share this visitor ID with the visitor — it's needed for check-in and for them to look up their visit.
+        </div>
+        <div class="mono" id="new-visitor-id" style="font-size: 20px; font-weight: 700; margin: 14px 0; color: var(--color-primary)"></div>
+        <div class="form-actions">
+          <a href="checkin.html" class="btn btn-primary">Check In Now</a>
+          <a href="visitors.html" class="btn btn-outline">View Directory</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="app-footer"></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>
